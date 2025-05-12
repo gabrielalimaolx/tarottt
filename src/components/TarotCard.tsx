@@ -34,16 +34,20 @@ const TarotCard: React.FC<TarotCardProps> = ({ card, index, total, onSelect }) =
     
     // Calcular a rotação da carta
     const rotation = (cardAngle * 180) / Math.PI;
+
+    // Aplicar transformação base e adicionar hover se necessário
+    const baseTransform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+    const hoverTransform = isHovered ? ' translateY(-20px)' : '';
     
     return {
-      transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
-      zIndex: index,
+      transform: baseTransform + hoverTransform,
+      zIndex: isHovered ? 100 : index,
     };
   };
 
   return (
     <div 
-      className={`tarot-card-wrapper ${isHovered ? 'hovered' : ''}`}
+      className="tarot-card-wrapper"
       style={calculatePosition()}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

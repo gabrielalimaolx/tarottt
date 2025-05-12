@@ -179,12 +179,6 @@ body {
   will-change: transform;
 }
 
-.tarot-card-wrapper.hovered {
-  transform: translateY(-20px) !important;
-  z-index: 100 !important;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-}
-
 .tarot-card {
   width: var(--card-width);
   height: var(--card-height);
